@@ -11,4 +11,10 @@ import { FirstName } from './features/first-name/first-name';
 })
 export class App {
   protected readonly title = signal('project 123');
+
+  availableNames = ['PureCss', 'Angular', 'React', 'Vue', 'Svelte'];
+
+  onalertclicked(number: number): void {
+    console.log(`Alert clicked ${number} times`);
+  }
 }

@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-first-name',
-  imports: [FormsModule],
+  imports: [FormsModule, UpperCasePipe],
   templateUrl: './first-name.html',
   styleUrl: './first-name.scss',
 })
 export class FirstName {
-  firstName = 'Angular';
+  firstName: string = '';
 
   newFirstName = '';
 
-  firstNameAvailables = ['Angular', 'React', 'Vue', 'Svelte'];
+  @Input() firstNameAvailables: string[] = [];
   public changeFirstName(newName: string): void {
     this.firstName = newName;
   }
@@ -24,8 +25,14 @@ export class FirstName {
 
     const isUnique = !this.firstNameAvailables.includes(firstName);
     if (isUnique) {
-      this.firstNameAvailables.push(firstName);
+      this.firstNameAvailables = [...this.firstNameAvailables, firstName];
       this.newFirstName = '';
+    }
+  }
+
+  ngOnInit(): void {
+    if (this.firstNameAvailables.length > 0) {
+      this.firstName = this.firstNameAvailables[0];
     }
   }
 }

@@ -19,7 +19,7 @@
 
 <fieldset>
   <legend>Alert Feature</legend>
-  <app-alert></app-alert>
+  <app-alert (alertClicked)="onalertclicked($event)" [alertClickedNumber]="3"></app-alert>
 </fieldset>
 
 <fieldset>
@@ -30,7 +30,7 @@
 <hr />
 
 <fieldset>
-  <app-first-name></app-first-name>
+  <app-first-name [firstNameAvailables]="availableNames"></app-first-name>
 </fieldset>
 
 <p>Footer</p>
