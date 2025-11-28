@@ -1,0 +1,15 @@
+<p>Je suis une alerte {{ firstName }}</p>
+
+J'ai été cliqué <b>{{ alertClickedNumber }}</b> fois.
+<button (click)="alert()">Alerte</button>
+
+<br />
+
+@for (name of firstNameAvailables; track $index) {
+<button
+  (click)="changeFirstName(name)"
+  [style.textDecoration]="name === firstName ? 'underline' : 'none'"
+>
+  {{ name }}
+</button>
+}
