@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Alert } from './features/alert/alert';
 import { FirstName } from './features/first-name/first-name';
+import { Container } from './yoloGame/container/container';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Alert, FirstName],
+  imports: [RouterOutlet, Alert, FirstName, Container],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
