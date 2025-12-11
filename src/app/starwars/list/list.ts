@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 
+interface Planet {}
+
 @Component({
   selector: 'app-list',
   imports: [CommonModule],
@@ -12,7 +14,7 @@ export class List {
   private http = inject(HttpClient);
 
   planets$ = this.http
-    .get<any>('https://swapi.dev/api/planets/')
+    .get<Planet[]>('https://swapi.dev/api/planets/')
     .pipe
     // map((response) => response.results),
     ();
