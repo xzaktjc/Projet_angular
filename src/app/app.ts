@@ -1,15 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BakeryContainer } from './bakery/bakery-container/bakery-container';
-import { Alert } from './features/alert/alert';
-import { FirstName } from './features/first-name/first-name';
-import { RxContainer } from './rx/rx-container/rx-container';
-import { List } from './starwars/list/list';
-import { Container } from './yoloGame/container/container';
+import { HeaderComponent } from './header/header.component';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Alert, FirstName, Container, RxContainer, BakeryContainer, List],
+  imports: [HeaderComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
