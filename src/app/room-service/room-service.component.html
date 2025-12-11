@@ -1,10 +1,8 @@
 <button
+  #btn
   class="room-service"
   type="button"
-  (click)="go()"
-  (keydown.space)="onKeySpace($event)"
-  (keydown.enter)="go()"
-  aria-label="Accéder au service de chambre: {{name}}"
+  aria-label="Accéder au service de chambre: {{ name }}"
 >
   <span class="visual">
     <img
