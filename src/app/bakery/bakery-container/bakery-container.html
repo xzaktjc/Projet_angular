@@ -1,11 +1,28 @@
+<h3>🇫🇷 Fabrication</h3>
 🍫 Pain aux chocolats : {{ painAuChocolatCreated$ | async }} (somme de :
 {{ treasuryPainAuChocolatCreated$ | async }}€)<br />
 🥐 Croissants : {{ croissantCreated$ | async }} (somme de :
 {{ treasuryCroissantCreated$ | async }}€)
 
 <div>
-  Nombre de visiteurs dans la boulangerie :
-  {{ customerCounterInstant$ | async }}<br />
-  Total de visiteurs passés dans la boulangerie :
+  <h3>💶 Ventes</h3>
+  Nombre de visiteurs dans la boulangerie : {{ customerCounterInstant$ | async }}<br />
+
+  Nombe de pains aux chocolat vendus :
+  {{ soldPainAuChocolat$ | async }}
+
+  <br />
+  Nombre total de pains aux chocolat vendus :
+  {{ totalSoldPainAuChocolat$ | async }}
+</div>
+
+<div>
+  👯‍♂️ Total de visiteurs passés dans la boulangerie :
   {{ customerCounterTotal$ | async }}
+</div>
+
+<div>
+  <h3>Stock</h3>
+  Nombre de pains aux chocolat restants en stock :
+  {{ stockPainAuChocolatRemaining$ | async }}
 </div>

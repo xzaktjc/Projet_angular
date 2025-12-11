@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { map, scan, share, timer } from 'rxjs';
+import { combineLatest, map, scan, share, timer } from 'rxjs';
 
 const COST_PAIN_AU_CHOCOLAT = 1.5;
 const COST_CROISSANT = 1.2;
@@ -12,10 +12,10 @@ const COST_CROISSANT = 1.2;
   styleUrl: './bakery-container.scss',
 })
 export class BakeryContainer {
-  painAuChocolatFatoryTimer = timer(0, 2000);
-  croissantFatoryTimer = timer(0, 3000);
+  painAuChocolatFatoryTimer = timer(0, 2000).pipe(share());
+  croissantFatoryTimer = timer(0, 3000).pipe(share());
 
-  customerFactoryTimer = timer(0, 7000);
+  customerFactoryTimer = timer(0, 7000).pipe(share());
 
   customerCounterInstant$ = this.customerFactoryTimer.pipe(
     // Logic to create customers
@@ -48,6 +48,21 @@ export class BakeryContainer {
     // Logic to add to treasury
     map((created) => created * COST_CROISSANT)
   );
+
+  // nombre de pains aux chocolat vendus
+  soldPainAuChocolat$ = this.customerCounterInstant$.pipe(
+    map((customers) => customers * this.getNumberBetween(1, 3)),
+    share()
+  );
+
+  // nombre de pains aux chocolat totals vendus
+  totalSoldPainAuChocolat$ = this.soldPainAuChocolat$.pipe(scan((acc, curr) => acc + curr, 0));
+
+  // nombe de pains aux chocolat en stocks
+  stockPainAuChocolatRemaining$ = combineLatest([
+    this.painAuChocolatCreated$,
+    this.totalSoldPainAuChocolat$,
+  ]).pipe(map(([created, sold]) => created - sold));
 
   public getNumberBetween(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
