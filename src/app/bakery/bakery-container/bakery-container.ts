@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { map, timer } from 'rxjs';
+import { map, scan, share, timer } from 'rxjs';
 
 const COST_PAIN_AU_CHOCOLAT = 1.5;
 const COST_CROISSANT = 1.2;
@@ -14,6 +14,20 @@ const COST_CROISSANT = 1.2;
 export class BakeryContainer {
   painAuChocolatFatoryTimer = timer(0, 2000);
   croissantFatoryTimer = timer(0, 3000);
+
+  customerFactoryTimer = timer(0, 7000);
+
+  customerCounterInstant$ = this.customerFactoryTimer.pipe(
+    // Logic to create customers
+    map((timer) => 1), // this.getNumberBetween(1, 5) * timer),
+    share()
+  );
+
+  customerCounterTotal$ = this.customerCounterInstant$.pipe(
+    // Logic to accumulate customers
+    scan((acc, curr) => acc + curr, 0),
+    share()
+  );
 
   painAuChocolatCreated$ = this.painAuChocolatFatoryTimer.pipe(
     // Logic to create pain au chocolat
@@ -34,4 +48,8 @@ export class BakeryContainer {
     // Logic to add to treasury
     map((created) => created * COST_CROISSANT)
   );
+
+  public getNumberBetween(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 }

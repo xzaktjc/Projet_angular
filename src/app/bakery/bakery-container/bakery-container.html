@@ -2,3 +2,10 @@
 {{ treasuryPainAuChocolatCreated$ | async }}€)<br />
 🥐 Croissants : {{ croissantCreated$ | async }} (somme de :
 {{ treasuryCroissantCreated$ | async }}€)
+
+<div>
+  Nombre de visiteurs dans la boulangerie :
+  {{ customerCounterInstant$ | async }}<br />
+  Total de visiteurs passés dans la boulangerie :
+  {{ customerCounterTotal$ | async }}
+</div>
