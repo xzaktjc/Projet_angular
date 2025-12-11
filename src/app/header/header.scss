@@ -10,9 +10,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
   }
 
   .brand {
@@ -20,10 +21,15 @@
     align-items: center;
     text-decoration: none;
 
+    /* Classe cohérente avec HTML : brand__logo */
     &__logo {
-      height: 40px;
-      width: auto;
       display: block;
+      height: 40px;      /* hauteur fixe adaptée au header */
+      width: auto;
+      max-width: 180px;  /* empêche un très grand logo */
+      object-fit: contain;
+      border-radius: 4px; /* optionnel */
+      transition: opacity 0.15s ease;
     }
   }
 
@@ -44,6 +50,7 @@
         font-weight: 500;
         padding: 0.25rem 0.5rem;
         border-radius: 6px;
+        color: #101827;
       }
 
       a.active {

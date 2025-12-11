@@ -1,0 +1,20 @@
+<button
+  class="room-service"
+  type="button"
+  (click)="go()"
+  (keydown.space)="onKeySpace($event)"
+  (keydown.enter)="go()"
+  aria-label="Accéder au service de chambre: {{name}}"
+>
+  <span class="visual">
+    <img
+      [src]="imageUrl || fallbackImage"
+      [alt]="name || 'Room service image'"
+      class="room-image"
+      loading="lazy"
+      (error)="onImageError()"
+    />
+  </span>
+
+  <span class="label" aria-hidden="false">{{ name }}</span>
+</button>

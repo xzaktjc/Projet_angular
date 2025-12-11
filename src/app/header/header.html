@@ -1,22 +1,25 @@
 <header class="site-header" role="banner" aria-label="En-tête du site">
   <div class="container">
     <a class="brand" routerLink="/" aria-label="Accueil - Prestige & Services">
-      <img src="/src/app/assets/logo.png" class="brand__logo"/>
+      <!-- Utiliser le chemin 'assets/logo.png' pour Angular -->
+      <img src="/assets/logo.png"
+           alt=""
+           class="brand__logo"
+           onerror="this.style.opacity=0.6; this.title='Logo manquant';">
     </a>
 
-    <nav class="nav" role="navigation" aria-label="Navigation principale">
-      <ul class="nav__list" [class.open]="menuOpen">
-        <li><a routerLink="/services" routerLinkActive="active">Services</a></li>
-        <li><a routerLink="/about" routerLinkActive="active">À propos</a></li>
-        <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
-        <li><a routerLink="/faq" routerLinkActive="active">FAQ</a></li>
+    <!-- Exemple de navigation / actions (facultatif) -->
+    <nav class="nav" aria-label="Navigation principale">
+      <ul class="nav__list">
+        <li><a routerLink="/services">Services</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
       </ul>
     </nav>
 
-    <div class="actions">
-      <button class="btn btn--ghost" (click)="openLang()" aria-label="Changer de langue">FR</button>
-      <a routerLink="/login" class="btn btn--primary">Connexion</a>
-      <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-controls="main-nav">
+    <div class="actions" aria-hidden="false">
+      <button class="btn btn--ghost">Inscription</button>
+      <button class="btn btn--primary">Connexion</button>
+      <button class="hamburger" aria-label="Ouvrir le menu mobile">
         <span class="hamburger__line"></span>
         <span class="hamburger__line"></span>
         <span class="hamburger__line"></span>

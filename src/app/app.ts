@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-
+import { RoomService } from './room-service/room-service.component';
 
 @Component({
   selector: 'app-root',
   imports: [HeaderComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss',
+  styleUrls: ['./app.scss'],
 })
 export class App {
   protected readonly title = signal('project 123');
