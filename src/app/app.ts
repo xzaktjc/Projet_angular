@@ -4,11 +4,12 @@ import { HeaderComponent } from './header/header.component';
 import { RoomServiceComponent } from './room-service/room-service.component';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterModule } from '@angular/router';
+import { ChatBotButtonComponent } from './chat-bot-button/chat-bot-button.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, HeaderComponent, RoomServiceComponent, RouterOutlet],
+  imports: [CommonModule, RouterModule, HeaderComponent, RoomServiceComponent, ChatBotButtonComponent,  RouterOutlet],
   templateUrl: './app.html',
   styleUrls: ['./app.scss'],
 })

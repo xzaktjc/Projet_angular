@@ -1,0 +1,26 @@
+<div class="chatbot-wrapper">
+  <!-- Chat overlay -->
+  <div class="chatbox" *ngIf="open">
+    <div class="messages">
+      <div *ngFor="let msg of messages">
+        <div [class.user]="msg.role === 'user'" [class.bot]="msg.role === 'assistant'">
+          {{ msg.content }}
+        </div>
+      </div>
+    </div>
+    <div class="input-container">
+      <input
+        type="text"
+        placeholder="Écris un message..."
+        [(ngModel)]="inputMessage"
+        (keydown.enter)="sendMessage()"
+      />
+      <button (click)="sendMessage()">Envoyer</button>
+    </div>
+  </div>
+
+  <!-- Floating button -->
+  <button class="chatbot-button" (click)="toggleChat()">
+    <img src="assets/Assistante.png" alt="ChatBot" />
+  </button>
+</div>
