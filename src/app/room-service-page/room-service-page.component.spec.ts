@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RxContainer } from './rx-container';
+import { RoomServicePageComponent } from './room-service-page.component';
 
-describe('RxContainer', () => {
-  let component: RxContainer;
-  let fixture: ComponentFixture<RxContainer>;
+describe('RoomServicePageComponent', () => {
+  let component: RoomServicePageComponent;
+  let fixture: ComponentFixture<RoomServicePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RxContainer]
+      imports: [RoomServicePageComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RxContainer);
+    fixture = TestBed.createComponent(RoomServicePageComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

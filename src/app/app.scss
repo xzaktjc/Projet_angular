@@ -1,8 +1,8 @@
 .room-service-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
-  gap: 1rem; /* espace entre colonnes et lignes */
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  gap: 1rem;
   width: 100%;
-  justify-items: center; /* centre chaque bouton dans sa colonne */
+  justify-items: center; /* centre les boutons dans chaque colonne */
   margin: 1rem 0;
 }

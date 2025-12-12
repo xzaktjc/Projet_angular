@@ -1,0 +1,26 @@
+.room-service-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  gap: 1rem;
+  width: 100%;
+  justify-items: center; /* centre les boutons dans les colonnes */
+  padding: 1rem;
+
+  /* hauteur fixe de chaque cellule */
+  grid-auto-rows: 300px; /* <- change cette valeur pour adapter la taille */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .room-service-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px; /* réduit la hauteur sur tablettes */
+  }
+}
+
+@media (max-width: 600px) {
+  .room-service-container {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 160px; /* réduit la hauteur sur mobile */
+  }
+}

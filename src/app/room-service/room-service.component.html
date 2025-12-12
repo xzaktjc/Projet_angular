@@ -4,15 +4,16 @@
   type="button"
   aria-label="Accéder au service de chambre: {{ name }}"
 >
-  <span class="visual">
+  <span class="visual" role="img" aria-hidden="true">
     <img
-      [src]="imageUrl || fallbackImage"
+      [src]="imageUrl"
       [alt]="name || 'Room service image'"
       class="room-image"
       loading="lazy"
       (error)="onImageError()"
     />
-  </span>
 
-  <span class="label" aria-hidden="false">{{ name }}</span>
+    <!-- caption overlay : apparaît progressivement au hover -->
+    <span class="caption">{{ name }}</span>
+  </span>
 </button>
